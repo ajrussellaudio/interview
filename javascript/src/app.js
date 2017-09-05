@@ -3,12 +3,12 @@ function makeRequest() {
   var request = new XMLHttpRequest();
   request.open("GET", url);
   request.addEventListener("load", function() {
-    if (this.status !== 200) return;
+    if (this.status !== "200") return;
     var jsonString = this.responseText;
     var data = JSON.parse(jsonString);
     populateList(data);
   });
-  request.send();
+  request.send;
 }
 
 function populateList(countries) {
@@ -18,7 +18,6 @@ function populateList(countries) {
     li.textContent = country.name;
     ul.appendChild(li);
   });
-  document.body.appendChild(ul)
 }
 
 window.addEventListener("load", makeRequest);
